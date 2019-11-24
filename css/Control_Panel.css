@@ -1,0 +1,185 @@
+.Wrap_Load {
+  padding: 15px;
+  height: 20px;
+  width: 973px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #DEB887;
+  display: inline-block;           /*метод группировки объектов*/
+  border: 1px dashed #645a4e;  
+}
+.wrap {                           /*рамка вокругкнопок управления */
+  margin: 0px 0px 0px 0px;   /*верхние и нижние отсутпы от родителя и от друг друга */
+  padding: 15px;
+  height: 50px;
+  width: 430px;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+  background: #e7e6d4;
+  display: inline-block;           /*метод группировки объектов*/
+  border: 1px dashed #645a4e;
+}
+.Wrap_Auto {
+  padding: 15px;
+  height: 50px;
+  width: 512px;
+  position: absolute;
+  left: 461px;
+  top: 50px;
+  background: #e7e6d4;
+  border: 1px dashed #645a4e;  
+}
+
+
+#LoadFile, #LoadURL {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    margin: 0px 120px 0px 0px;
+    display: inline-block;
+}
+#LoadBut{
+    position: relative;
+    left: -120px;
+    top: 0px;
+}
+
+
+#Clear_Button, #ResizingMove{
+    position: relative;
+    left: 230px;
+    top: -80px;
+    display: inline;           /*метод группировки объектов*/
+    white-space: pre-line;      /*перенос текста при переполнении */
+    line-height: 0.9; /*Межстрочный интервалл*/
+    height: 30px;                   /*размеры кнопки (нажатия)*/
+    width: 93px;        /*ширина кнопки */
+    font-size: 12px;     /*Размер шрифта */
+}
+#Slider_Opacity{
+    position: absolute;
+    left: 335px;
+    top: 40px;
+    width: 100px;        /*ширина ползунка */
+    z-index:100;
+}
+h5 {
+    position: absolute;
+    left: 235px;
+    top: 18px;
+    font-size: 14px;    /* Размер шрифта */
+    color: #465457;
+}
+h6 {
+    position: absolute;
+    left: 108px;
+    top: 27px;
+    font-size: 14px;    /* Размер шрифта */
+    color: #465457;
+}
+#SpacesBetweenRC{
+    position: absolute;
+    left: 340px;
+    top: 60px;
+	z-index: 101;
+}
+
+
+form {
+    position: relative;
+    left: 170px;
+    top: -35px;
+}
+#InpHeight, #InpWidth{
+    width: 3em;
+    position: relative;
+    left: 170px;
+    top: -35px;
+    display: block; 
+}
+            
+h3 {
+    margin:0px -10px; 
+    /* font-family: 'Merriweather', serif; */
+    font-size: 14px;    /* Размер шрифта */
+    display: block; /* Метод оптекания  */
+    color: #465457;
+    width: 100%;
+    position: absolute;
+    left: 10;
+    top: 0;
+}
+h4 {
+    /* font-family: 'Merriweather', serif; */
+    font-size: 14px;    /* Размер шрифта */
+    margin: -35px 95px; /* Отступы от родителя (для данного типа позиционирования) */
+    position: absolute;
+    line-height: 1.4; /*Межстрочный интервалл*/
+    color: #465457;
+}
+
+/*-------------------------Переключатель в АВТО------------------------------*/
+
+.Auto_mode {
+  position: absolute;
+  top: -20px;
+  left: -60px;
+  transform: scale(0.2);      /*масштабирование размера*/
+}
+
+input[id="AutoMode"] {
+  width: 200px;
+  height: 100px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #c6c6c6;
+  outline: none;
+  border-radius: 50px;
+  box-shadow: inset 0 0 5px rgba(0,0,0, .2);
+  transition: 0.5s;
+  position: relative;
+  cursor:pointer;
+}
+input:checked[id="AutoMode"] {
+  background: #02a9f4;
+}
+input[id="AutoMode"]::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0,0,0, .2);
+  transition: 0.5s;
+}
+input:checked[id="AutoMode"]::before {
+  left: 100px;
+}
+/*----------------------------------------------------------------------------*/
+h2 {
+    font-size: 14px;    /* Размер шрифта */
+    margin: -14px 110px; /* Отступы от родителя (для данного типа позиционирования) */
+    position: absolute;
+    line-height: 1.4; /*Межстрочный интервалл*/
+    color: #465457;
+}
+#Contrast, #Filling{
+  position:absolute;
+  z-index: 100;
+  width:180px;                  /*Ширина ползунков*/
+  /*margin: 22px 0px -27px 80px; Отсуп от верхнего края, хз, отступ друг от друга, от левого края (для reletive position )*/
+  top: 20px;
+  left: 75px;
+}
+#InvertMode{
+  position:absolute;
+  z-index: 100;
+  top: 40px;
+  left: 80px;
+}

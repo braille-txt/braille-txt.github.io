@@ -1,0 +1,59 @@
+/*
+.button {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  padding: 1px;
+  cursor: pointer;
+  border: solid 1px #fff;
+}
+ 
+.button:hover {
+  border: solid 1px #f00;
+}
+ 
+.button:active {
+  border: solid 1px #ff0;
+}
+ 
+#palette {
+  display: inline-block;
+  border: solid 1px #aaa;
+  cursor: default;
+  vertical-align: top;
+}
+ 
+#palette {
+  width: 95px;
+}
+ 
+#clear {
+  background: #eee;
+  color: #777;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  margin: 15px auto;
+  cursor: pointer;
+}
+*/
+
+#CursorLayer {
+    position: absolute; 
+    top: 0px; 
+    left: 0px;
+    z-index: 5;
+    /* display: inline-block; */
+    /* cursor: move; */
+    /* margin: 0px auto; */
+
+    /* border-top-color: #800000;       Цвет линии сверху */
+    /* border-top-style: double;        Стиль линии сверху */
+    /* border-top-width: 0px;           Толщина линии сверху */
+    /* border-left-color: #bd0000;      Цвет линии слева */
+    /* border-left-style: solid;        Стиль линии */
+    /* border-left-width: 0px;          Толщина линии */
+
+    /* padding: 7px; /* Поля вокруг текста */ 
+    opacity: 0.5;   /* уровень прозрачности*/
+}

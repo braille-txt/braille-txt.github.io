@@ -1,0 +1,64 @@
+.resize-container {
+    position: absolute; 
+    top: 0px; left: 0px; 
+
+    /*display: inline-block;*/
+    cursor: move;
+    margin: 0px auto;
+}
+
+
+.resize-container img {
+    display: block;
+}
+
+.resize-container:hover img,
+.resize-container:active img {
+    outline: 2px dashed rgba(222,60,80,.9);
+}
+
+.Invisible_Move_Box{              /*Невидимый квадрат для перемещения рисунка поверх Canvans'a для рисования*/
+    position: absolute;
+    display: block;
+    width: 300px;
+    height: 300px;
+    background: rgba(222,60,80,0.0);
+    z-index: 900;
+}
+
+
+.resize-handle-ne,
+.resize-handle-se,
+.resize-handle-nw,
+.resize-handle-sw {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: rgba(222,60,80,.9);
+    z-index: 999;
+}
+
+.resize-handle-nw {
+    top: -5px;
+    left: -5px;
+    cursor: nw-resize;
+}
+
+.resize-handle-sw {
+    bottom: -5px;
+    left: -5px;
+    cursor: sw-resize;
+}
+
+.resize-handle-ne {
+    top: -5px;
+    right: -5px;
+    cursor: ne-resize;
+}
+
+.resize-handle-se {
+    bottom: -5px;
+    right: -5px;
+    cursor: se-resize;
+}

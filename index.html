@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+   <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- Информация о методанных -->
+                <meta name="title" content ="Braille to txt, Point to txt, online, image, ASKII, Converter Braille image to txt online, Braille drawing online, Рисование Брайля онлайн, Рисование точками онлайн"/> 
+                <meta name="Keywords" content="Braille to txt, Point to txt, online, image, ASKII, Converter Braille image to txt online, Braille drawing online, Рисование Брайля онлайн, Рисование точками онлайн"/> 
+                <meta name="Description" content="Braille to txt, Point to txt, online, image, ASKII, Converter Braille image to txt online, Braille drawing online, Рисование Брайля онлайн, Рисование точками онлайн"/> 
+                <title> Braille drawing image ASCII Converter </title> 
+
+		<!--<link rel="stylesheet" type="text/css" href="css/normalize.css" />-->
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+                <link rel="stylesheet" type="text/css" href="css/ImageToBackground.css" />
+                <link rel="stylesheet" type="text/css" href="css/MyCss.css" />
+                <link rel="stylesheet" type="text/css" href="css/Control_Panel.css" />
+                
+                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>   
+                <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+                <!-- <script type="application/ld+json">
+                {
+                  "@type" : "SoftwareApplication",
+                  "name" : "Braille (Points) drawing online Braille Image ASCII Converter",
+                  "keywords" : "Braille, Points, online, Image, ASCII, Converter, Braille to txt, Point to txt, online, image, ASCII, Converter Braille image to txt online, Braille drawing online, Рисование Брайля онлайн, Рисование точками онлайн"
+                }-->
+       
+
+                
+	</head>
+	<body>
+<h1>Braille (Points) drawing online / <br> Braille Image ASCII Converter</h1>
+     
+<div id="about" align="right">
+<a href="about.html"> about (rus. language only)</a>
+</div>
+
+    <div class="Wrap_Load" >
+        <h3>Load Image:</h3>
+        <input id="LoadFile" type="file" name="LoadFile" multiple accept="image/*,image/jpeg" />
+        <input style="display:none" id="LoadURL" type="text" name="LoadURL" size=45 placeholder="Enter url Image"/> 
+        <input style="display:none" id="LoadBut" type="button" value="Load" onClick="getImageURL2()" />
+    </div>         
+    <div class="wrap" >
+        <!-- <input type="button" id="startBtn" value="Let begin"> -->
+        <h3>Size brush:</h3>
+        <span class="buttonHolder" >
+            <input type="checkbox" checked id="SmallSize" onclick="ChoseSmallSize()" />
+            <label data-off="." data-on="" id="label1"></label>
+        </span> 
+        <span class="buttonHolder" >
+            <input type="checkbox" id="BigSize" onclick="ChoseBigSize()" />
+            <label data-off="... ... ..." data-on="" id="label2"></label>
+        </span> 
+        <span class="Lastik_Brush" >
+            <input type="checkbox" id="Lastik_Brush" onclick="Lastik_Brush()" />
+            <label id="label3"></label>
+        </span>
+        
+        <h4>Rows: <br> Columns: </h4>
+        <input type="number" step="1" min="5" max="70" value="14" id="InpHeight" onchange="СhangeHeight()">
+        <input type="number" step="1" min="5" max="70" value="30" id="InpWidth" onchange="СhangeWidth()">
+        
+        <input id="Clear_Button" type="button" value="Clear _ Canvas" onclick="Clear_Button()"/>
+        <input id="ResizingMove" type = "button" value = "Resizing/Move Image" onClick = "ResizingMoveImage()" />
+        
+        <h5> Opacity Image: </h5>
+        <input id="Slider_Opacity" type="range" min="1" max="100" step="1" value="50" oninput="Slider_Opacity()" onchange="Slider_Opacity()">
+        <h6>Spaces_between_rows/columns:</h6>
+        <input type="checkbox" id="SpacesBetweenRC" onclick="SpacesBetweenRC()"> 
+    </div>
+
+            
+            
+    <div class="Wrap_Auto" >
+        <h3>Auto mode:</h3>
+        <div class="Auto_mode">
+            <input type="checkbox" id="AutoMode" onclick="AutoModeImage()" />
+        </div> 
+        <div class="Buttons_Auto" style="display:none">
+            <h2>Contrast tolerance: <br> Filling tolerance: <br> Invert Mode: </h2>
+            <form><input id="Contrast" type="range" min="0" max="1" step="0.01" value="0.5"  oninput="AutoModeImage()" onchange="AutoModeImage()"></form> <br>
+            <form><input id="Filling" type="range" min="0" max="1" step="0.01" value="0.5"   oninput="AutoModeImage()" onchange="AutoModeImage()"></form>
+            <form><input type="checkbox" id="InvertMode" onclick="AutoModeImage()"></form>
+        </div>
+    </div>
+    
+    <input id="Run_Processing" type="button" value="Convert_To_txt" onClick="Run_Processing()" /> 
+    
+    
+    <div id="My_Example">
+                                    ⣰⡇<br>
+                                ⢀⣼⣿⣧<br>
+                  ⣀⣀⣤⣤⣤⣴⣾⣿⣿⣿⣿⣧⡀<br>
+            ⣠⣶⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣤⡀<br>
+        ⢠⣾⣿⣿⣿⣿⡿⠋⠁        ⢀⣀⣠⣤⣤⡀⢀<br>
+    ⢀⡤⣿⣿⣿⣿⣿⡟              ⠹⣿⣿⣿⣽⣿⣌⢿⣶⣤⡀<br>
+  ⢀⣿⣷⣿⣿⣿⣿⣿⣧                ⠘⣿⣿⣿⣿⣿⣿⢿⣿⣿⣦⡀⣄<br>
+  ⢸⣿⡏⣿⣿⣿⣿⣿⣿⣧⣴⡶        ⠹⢿⣿⣿⣿⣿⢇⣿⣾⣿⣿⣿⣷⡝⣿⣷⣄<br>
+  ⠻⣿⣧⢿⣿⣿⣿⣿⡿⠿⣿⣇            ⠉⠛⠛⢵⡾⠟⣹⣿⣿⣿⣿⣿⣸⣿⣯<br>
+    ⢿⣿⣞⣿⣿⣿⣿⣷⣿⢏⣽⣿⣶⣦⣄          ⣸⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⠆<br>
+      ⠻⠿⠮⢻⣿⣿⣿⣿⣾⣿⣿⣿⣿⠛⠓        ⠋⠁⠘⣿⣿⣿⣿⣿⣿⡇⣿⣿<br>
+              ⠙⠿⣿⣿⠿⣿⡿⣿⣿⣧                ⣹⣿⣿⣿⣿⣿⣇⡿⠁<br>
+                  ⠈⠙⠓⠙⠷⠿⠿⠿⠓            ⣠⣿⣿⣿⣿⣿⡿⠈<br>
+                      ⠙⠷⣶⣦⣤⣤⣀⣀⣀⣠⣤⣴⣿⣿⣿⣿⣿⣿⠟<br>
+                          ⠉⢿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⠿⠛⠉<br>
+                            ⠈⢿⣿⡿⠋<br>
+                              ⢸⠋<br>
+    </div>
+    <textarea style="font-family: Arial; font-size: 14px; display:none" id="Result_Textarea1" rows="10" cols="45" name="text" wrap="off"></textarea>
+    <textarea style="font-family: Lucida Console; font-size: 14px; display:none" id="Result_Textarea2" rows="10" cols="45" name="text" wrap="off"></textarea>
+    <div class="div_Textarea1" style="display:none">
+        <p>Font-family: <b><font color="black"> Arial </font></b>  / For "Steam" & "youtube"</p> 
+        <p>The number of characters: <output id="Chars_Textarea1"> 0 </output> (with considering line break)</p> 
+        <p>The number of characters in the Steam: <output id="Chars_Steam_Textarea1"> 0 </output></p>
+    </div>
+    <div class="div_Textarea2" style="display:none">
+        <p>Font-family: <b><font color="black"> Lucida Console </font></b>  / For "Windows Notepad"</p> 
+        <p>The number of characters: <output id="Chars_Textarea2"> 0 </output> (with considering line break)</p> 
+    </div>
+    
+    <style>
+        #My_Example
+        {
+            position: absolute;
+            left: 1040px;
+            top: 20px;
+            /*border: 2px solid red;*/
+            width: 450px;
+            height: 380px;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        output{
+            color: green;
+            font-weight: 600; /* Жирное начертание */
+        }
+        #Run_Processing
+        {
+            position: absolute;
+            left: 850px;
+            top: 15px;
+        }
+        .div_Textarea1
+        {
+            position: absolute;
+            left: 1020px;
+            top: -10px;
+           /*border: 2px solid red; */
+          width: 450px;
+          height: 150px;
+          overflow-x: auto;
+          overflow-y: hidden;
+        }
+        #Result_Textarea1
+        {
+            position: absolute;
+            left: 1020px;
+            top: 100px;
+            z-index: 1;
+        }
+        .div_Textarea2
+        {
+            position: absolute;
+            left: 1020px;
+            top: 310px;
+            /*border: 2px solid red; */
+            width: 450px;
+            height: 80px;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        #Result_Textarea2
+        {
+            position: absolute;
+            left: 1020px;
+            top: 390px;
+            z-index: 0;
+        }
+        #about
+        {
+            position: absolute;
+            left: 1240px;
+            top: 1110px;
+            z-index: 0;
+        }
+ </style>
+
+                        <!--
+                        <div id="Test1" class="MyCl" >
+                            <h1 style="color:red">Hello!</h1>
+                        </div>
+                        <canvas id="canvas0" width="700" height="500">Ваш браузер устарел!</canvas>
+                        <div id="clear">Очистить изображение</div>
+                        -->
+
+                        
+			<!-- Top Navigation -->
+				<div id="MyCompon" class="component">
+				        <canvas id="myCanvas" style="outline: 1px dashed red;"></canvas>
+					<!-- This image must be on the same domain as the demo or it will not work on a local file system -->
+					<!-- http://en.wikipedia.org/wiki/Cross-origin_resource_sharing -->
+                                        <!--<img class="resize-image" src="img/image.jpg" alt="image for resizing"> -->
+                                        <img style="display:none" class="resize-image" name="MyPic" src="#" alt="image for resizing">
+                                </div>
+                        <!--<input type="file" id="upload" name="photo" multiple accept="image/*,image/jpeg" >
+                        <input type="text" id="TextInId" name="TextIn" value="gg" />
+                        -->
+
+
+<script>
+
+var _0x559f=['\x77\x70\x48\x44\x6d\x67\x33\x43\x76\x38\x4b\x4a','\x54\x4d\x4b\x30\x49\x63\x4f\x50\x77\x72\x30\x3d','\x51\x4d\x4f\x31\x57\x47\x67\x74','\x61\x4d\x4b\x70\x77\x34\x59\x67\x77\x35\x67\x3d','\x47\x57\x62\x43\x75\x6c\x51\x4c','\x77\x6f\x4a\x5a\x45\x73\x4f\x64\x4f\x67\x3d\x3d','\x77\x70\x72\x44\x6f\x52\x49\x31\x47\x56\x42\x6e','\x52\x4d\x4f\x61\x4d\x41\x3d\x3d','\x77\x35\x55\x32\x4a\x4d\x4f\x6d\x41\x41\x34\x4c','\x61\x55\x35\x70\x77\x70\x38\x3d','\x77\x70\x44\x43\x6a\x30\x48\x43\x6f\x30\x45\x43\x47\x41\x3d\x3d','\x77\x6f\x42\x57\x77\x36\x66\x43\x73\x63\x4f\x71','\x77\x6f\x6e\x44\x71\x38\x4b\x4e\x66\x54\x66\x43\x6b\x4d\x4b\x52','\x58\x38\x4b\x68\x4f\x38\x4f\x69\x77\x6f\x6b\x3d','\x77\x35\x62\x44\x69\x38\x4f\x42\x77\x72\x70\x4c\x77\x37\x55\x31','\x4b\x55\x54\x44\x69\x42\x68\x6b\x77\x6f\x44\x44\x6f\x4d\x4b\x61\x77\x36\x6b\x3d','\x61\x67\x77\x6f\x77\x35\x39\x31\x77\x36\x6f\x41','\x44\x6c\x55\x43\x77\x71\x62\x43\x73\x67\x3d\x3d','\x66\x31\x39\x72\x77\x70\x30\x35','\x42\x73\x4b\x56\x44\x38\x4b\x75\x77\x37\x37\x43\x74\x38\x4b\x6f\x4e\x46\x78\x65\x77\x72\x7a\x43\x67\x73\x4f\x43\x77\x72\x68\x61\x77\x72\x41\x3d','\x51\x67\x52\x48\x77\x35\x70\x67\x58\x4d\x4b\x53\x47\x4d\x4b\x34\x49\x32\x4e\x74\x77\x72\x6a\x44\x68\x73\x4b\x32\x77\x34\x2f\x43\x6e\x38\x4b\x54\x77\x70\x45\x56\x58\x4d\x4f\x50\x64\x63\x4f\x53\x77\x34\x76\x44\x73\x41\x50\x44\x6f\x68\x6a\x43\x72\x73\x4b\x68\x65\x38\x4f\x52\x77\x71\x48\x44\x6e\x52\x35\x39\x77\x70\x67\x79\x62\x43\x73\x56\x61\x63\x4b\x59\x57\x77\x50\x44\x74\x63\x4f\x50\x51\x6c\x37\x44\x68\x4d\x4f\x38\x63\x67\x63\x74\x77\x70\x31\x4b\x46\x77\x76\x43\x69\x7a\x68\x2b','\x64\x4d\x4f\x4d\x77\x71\x77\x78','\x77\x72\x6e\x44\x67\x54\x58\x43\x6f\x73\x4b\x4d','\x77\x71\x37\x44\x6a\x43\x66\x43\x76\x77\x3d\x3d','\x4b\x73\x4b\x52\x77\x36\x7a\x43\x68\x73\x4f\x46','\x77\x6f\x58\x44\x6f\x73\x4b\x61\x59\x67\x73\x3d','\x77\x72\x7a\x43\x70\x51\x6a\x43\x76\x51\x67\x3d','\x77\x35\x76\x44\x73\x67\x6e\x43\x67\x4d\x4f\x39','\x59\x7a\x45\x4b\x77\x71\x7a\x44\x6d\x67\x3d\x3d','\x77\x36\x58\x44\x6b\x69\x51\x3d','\x45\x30\x6b\x46\x77\x71\x6f\x3d','\x42\x44\x4c\x44\x72\x41\x6e\x44\x6e\x41\x3d\x3d','\x77\x37\x70\x44\x51\x38\x4f\x32\x62\x38\x4b\x57\x63\x78\x7a\x43\x73\x41\x3d\x3d','\x77\x70\x49\x2b\x77\x34\x50\x43\x6a\x67\x67\x3d','\x77\x34\x54\x44\x70\x38\x4f\x37\x77\x72\x31\x63','\x77\x36\x35\x34\x64\x4d\x4f\x6e\x5a\x77\x3d\x3d','\x77\x6f\x68\x36\x77\x70\x4c\x43\x75\x4d\x4f\x46','\x47\x38\x4b\x41\x47\x30\x68\x6b','\x52\x63\x4f\x67\x53\x6e\x45\x3d','\x42\x38\x4b\x48\x42\x4d\x4b\x2f','\x77\x35\x62\x44\x68\x63\x4f\x44\x77\x71\x55\x3d','\x77\x36\x6a\x44\x6e\x6a\x66\x43\x6b\x38\x4f\x72\x77\x36\x30\x3d','\x4f\x77\x76\x44\x6e\x48\x51\x77','\x4b\x45\x6a\x43\x70\x33\x4d\x75','\x57\x73\x4b\x61\x77\x36\x34\x31\x77\x34\x2f\x43\x67\x63\x4b\x54\x77\x70\x72\x43\x68\x52\x54\x44\x73\x56\x7a\x43\x73\x38\x4b\x34\x77\x35\x6c\x73','\x58\x73\x4b\x65\x77\x37\x78\x46\x56\x4d\x4b\x38\x47\x33\x6f\x2f\x49\x6d\x4d\x42\x77\x37\x46\x56\x4e\x6c\x6c\x51\x77\x70\x72\x43\x73\x73\x4f\x77\x50\x4d\x4b\x63\x63\x63\x4b\x64\x59\x4d\x4b\x67\x55\x44\x44\x44\x76\x45\x5a\x2b\x4e\x63\x4b\x6c\x77\x70\x38\x65\x77\x70\x6e\x43\x73\x73\x4b\x52\x77\x35\x54\x43\x6f\x30\x6c\x77\x77\x71\x67\x4e\x77\x37\x6a\x43\x74\x31\x6f\x69\x49\x38\x4b\x41\x65\x63\x4f\x67\x77\x71\x68\x71\x77\x36\x58\x44\x67\x6e\x42\x43\x53\x68\x66\x44\x76\x42\x4d\x3d','\x77\x72\x50\x44\x68\x7a\x33\x43\x76\x77\x3d\x3d','\x4d\x51\x4c\x44\x67\x57\x49\x3d','\x77\x36\x72\x44\x6c\x53\x4c\x43\x6b\x38\x4f\x71','\x4f\x46\x6e\x44\x6d\x41\x6b\x3d','\x77\x6f\x6c\x31\x4b\x63\x4f\x57\x43\x77\x3d\x3d','\x77\x70\x78\x48\x77\x70\x35\x46\x77\x72\x63\x3d','\x47\x73\x4b\x34\x77\x37\x50\x43\x73\x63\x4f\x41','\x47\x63\x4b\x5a\x4d\x52\x41\x56','\x77\x72\x4c\x43\x73\x77\x48\x43\x76\x53\x49\x3d','\x77\x34\x76\x43\x70\x4d\x4f\x50\x4a\x38\x4b\x4b','\x77\x72\x70\x4c\x47\x38\x4f\x49\x47\x67\x3d\x3d','\x4e\x77\x4c\x44\x68\x6d\x4e\x4a\x77\x72\x7a\x43\x73\x73\x4b\x59\x77\x36\x48\x43\x6a\x38\x4f\x42\x77\x35\x6a\x43\x6e\x4d\x4b\x37\x56\x73\x4b\x77\x77\x6f\x4d\x74\x77\x70\x30\x3d','\x63\x68\x35\x6f\x77\x34\x39\x31\x77\x36\x67\x57\x77\x70\x52\x6b\x45\x69\x41\x42\x77\x6f\x6c\x6c\x63\x68\x50\x44\x6f\x32\x67\x38\x5a\x63\x4f\x51\x77\x6f\x4d\x75\x46\x56\x7a\x43\x6f\x38\x4f\x37\x77\x70\x6a\x44\x6d\x73\x4b\x56\x77\x72\x44\x43\x75\x77\x3d\x3d','\x57\x73\x4b\x62\x77\x35\x41\x69\x77\x34\x49\x3d','\x57\x7a\x44\x43\x75\x4d\x4f\x58\x77\x34\x6a\x43\x67\x6e\x41\x3d','\x49\x4d\x4b\x51\x77\x37\x4c\x43\x67\x4d\x4f\x65\x77\x72\x31\x79','\x4c\x4d\x4b\x64\x4e\x57\x31\x39','\x52\x63\x4f\x36\x77\x36\x6f\x50\x45\x77\x3d\x3d','\x77\x71\x70\x73\x77\x72\x35\x43\x77\x72\x67\x3d','\x55\x54\x48\x43\x73\x4d\x4f\x4c','\x77\x37\x70\x4a\x55\x73\x4f\x38\x62\x51\x3d\x3d','\x77\x6f\x2f\x44\x76\x4d\x4b\x41\x61\x79\x6a\x43\x69\x4d\x4b\x64\x46\x63\x4f\x70','\x46\x54\x4c\x44\x76\x77\x58\x44\x69\x77\x3d\x3d','\x54\x7a\x66\x43\x76\x38\x4f\x49\x77\x34\x4c\x44\x6a\x6a\x31\x57\x77\x70\x72\x44\x6e\x57\x39\x4b\x77\x35\x42\x39\x50\x77\x3d\x3d','\x53\x63\x4f\x46\x4a\x77\x50\x43\x6b\x51\x3d\x3d','\x51\x4d\x4b\x61\x4b\x69\x41\x35\x77\x6f\x4c\x44\x6d\x51\x3d\x3d','\x4b\x56\x76\x44\x68\x53\x74\x38','\x45\x4d\x4b\x67\x77\x72\x66\x43\x74\x46\x6f\x3d','\x47\x55\x67\x4e\x77\x72\x62\x43\x75\x45\x4d\x70','\x77\x70\x4e\x53\x77\x37\x66\x43\x71\x67\x3d\x3d','\x42\x4d\x4b\x46\x41\x38\x4b\x34\x77\x36\x30\x3d','\x77\x70\x64\x6f\x59\x4d\x4f\x32\x77\x6f\x39\x4b\x4c\x41\x3d\x3d','\x77\x70\x72\x43\x6a\x6b\x6e\x43\x76\x77\x3d\x3d','\x77\x6f\x70\x58\x48\x73\x4b\x38\x77\x35\x38\x35\x77\x72\x34\x3d','\x77\x71\x35\x31\x48\x43\x51\x62\x4e\x4d\x4b\x34','\x77\x72\x6e\x43\x76\x53\x72\x44\x6a\x38\x4f\x2f\x54\x42\x45\x3d','\x77\x6f\x64\x42\x77\x36\x44\x43\x70\x63\x4f\x35\x77\x72\x6e\x43\x74\x55\x4c\x44\x6e\x78\x72\x44\x74\x38\x4f\x6e\x77\x72\x73\x3d','\x63\x63\x4f\x57\x77\x35\x49\x48\x42\x4d\x4f\x69','\x77\x71\x68\x4a\x43\x41\x3d\x3d','\x48\x41\x2f\x44\x73\x48\x59\x47','\x48\x4d\x4b\x4d\x77\x36\x2f\x44\x68\x67\x3d\x3d','\x57\x53\x2f\x43\x70\x73\x4f\x42\x77\x34\x6e\x43\x69\x6c\x5a\x4b\x77\x6f\x48\x44\x68\x47\x34\x3d','\x77\x72\x44\x43\x6f\x57\x76\x44\x6e\x38\x4f\x2f\x54\x51\x52\x62\x77\x70\x4a\x34\x46\x73\x4b\x55\x50\x45\x6e\x43\x71\x67\x3d\x3d','\x77\x37\x58\x43\x6a\x55\x76\x43\x6b\x38\x4f\x71\x77\x70\x62\x43\x75\x63\x4f\x5a\x49\x38\x4b\x6b\x77\x35\x74\x4d\x42\x4d\x4b\x53\x77\x72\x66\x43\x76\x55\x39\x58\x77\x35\x38\x48\x77\x72\x48\x43\x6a\x44\x45\x3d','\x59\x78\x42\x70\x77\x37\x78\x6f\x77\x36\x6b\x47\x77\x6f\x56\x6c\x46\x43\x6f\x62\x77\x6f\x46\x49\x43\x46\x54\x44\x6f\x6e\x67\x6b\x5a\x4d\x4b\x4d\x77\x6f\x64\x39','\x77\x34\x37\x43\x6b\x6c\x4d\x33\x77\x72\x77\x4d\x42\x63\x4b\x64\x77\x37\x30\x4d\x77\x6f\x58\x43\x72\x63\x4f\x45\x50\x69\x41\x57','\x77\x70\x6e\x43\x6b\x77\x44\x43\x6b\x56\x73\x61\x45\x6b\x67\x36\x77\x72\x44\x43\x69\x38\x4b\x53\x62\x69\x6b\x3d','\x43\x7a\x50\x43\x73\x53\x54\x44\x6d\x32\x7a\x43\x74\x42\x4e\x35\x52\x30\x44\x43\x6a\x51\x34\x2b\x53\x38\x4f\x55\x77\x6f\x4e\x62\x77\x37\x7a\x44\x76\x51\x3d\x3d','\x4e\x63\x4b\x38\x44\x6d\x52\x67','\x77\x72\x76\x44\x6d\x53\x54\x43\x70\x38\x4b\x62','\x77\x6f\x44\x43\x6c\x46\x33\x43\x75\x55\x41\x4a','\x5a\x68\x45\x6c\x77\x6f\x30\x55','\x59\x73\x4f\x58\x50\x69\x6a\x43\x67\x67\x3d\x3d','\x77\x71\x37\x43\x70\x73\x4f\x34\x4b\x73\x4f\x6e\x57\x4d\x4b\x71\x61\x7a\x54\x44\x6e\x73\x4f\x33','\x77\x37\x78\x55\x56\x63\x4f\x39\x61\x38\x4b\x48\x61\x41\x3d\x3d','\x77\x6f\x56\x64\x48\x73\x4b\x6f\x77\x34\x51\x39','\x45\x78\x58\x44\x76\x77\x6a\x44\x6d\x51\x3d\x3d','\x77\x72\x2f\x43\x6e\x4d\x4f\x33\x4e\x38\x4f\x6b','\x77\x37\x4e\x55\x52\x77\x3d\x3d','\x4d\x67\x62\x44\x67\x48\x67\x3d','\x77\x6f\x31\x64\x45\x73\x4b\x36\x77\x35\x63\x3d','\x77\x72\x50\x44\x68\x7a\x4c\x43\x70\x41\x3d\x3d','\x77\x72\x41\x79\x77\x6f\x58\x44\x74\x4d\x4b\x42','\x42\x44\x6a\x44\x76\x51\x50\x44\x6e\x6d\x7a\x43\x71\x52\x4e\x35','\x77\x72\x44\x43\x72\x42\x2f\x43\x6f\x69\x38\x33\x77\x36\x55\x35\x63\x43\x4e\x47','\x77\x35\x66\x43\x69\x73\x4f\x73\x48\x41\x3d\x3d','\x77\x37\x68\x63\x52\x63\x4f\x68','\x77\x6f\x63\x76\x77\x35\x62\x43\x68\x41\x4a\x34','\x53\x79\x6b\x48\x77\x36\x56\x4d','\x77\x34\x44\x43\x68\x42\x34\x53','\x77\x34\x50\x43\x68\x68\x6b\x56','\x77\x70\x6a\x44\x76\x67\x77\x71\x44\x77\x3d\x3d','\x57\x38\x4f\x42\x4e\x68\x76\x43\x6a\x63\x4f\x57\x77\x70\x63\x68\x77\x34\x76\x43\x6e\x38\x4b\x6c','\x77\x37\x66\x44\x72\x63\x4f\x4e\x77\x72\x4e\x51','\x44\x63\x4b\x50\x77\x35\x6e\x44\x6f\x42\x63\x3d','\x42\x4d\x4b\x79\x4b\x51\x6f\x4b','\x77\x72\x46\x5a\x4c\x38\x4f\x51\x4f\x67\x3d\x3d','\x77\x6f\x77\x75\x77\x36\x62\x43\x6d\x54\x51\x3d','\x77\x6f\x49\x70\x77\x34\x44\x43\x6d\x41\x3d\x3d','\x77\x72\x35\x75\x45\x79\x4d\x52\x46\x38\x4b\x2f\x77\x70\x45\x6b\x77\x71\x50\x43\x71\x77\x3d\x3d'];var _0x4b3d=function(_0x29e57b,_0x1ab4ae){_0x29e57b=_0x29e57b-0x0;var _0x1d85de=_0x559f[_0x29e57b];if(_0x4b3d['oMgRRn']===undefined){(function(){var _0x2239c7;try{var _0x5afb98=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');_0x2239c7=_0x5afb98();}catch(_0x580327){_0x2239c7=window;}var _0x1ccef8='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';_0x2239c7['atob']||(_0x2239c7['atob']=function(_0x4753d6){var _0x4191ba=String(_0x4753d6)['replace'](/=+$/,'');for(var _0x3f5eaf=0x0,_0x1f267c,_0x295b1b,_0x4fc1e2=0x0,_0x149b0a='';_0x295b1b=_0x4191ba['charAt'](_0x4fc1e2++);~_0x295b1b&&(_0x1f267c=_0x3f5eaf%0x4?_0x1f267c*0x40+_0x295b1b:_0x295b1b,_0x3f5eaf++%0x4)?_0x149b0a+=String['fromCharCode'](0xff&_0x1f267c>>(-0x2*_0x3f5eaf&0x6)):0x0){_0x295b1b=_0x1ccef8['indexOf'](_0x295b1b);}return _0x149b0a;});}());var _0x3208e4=function(_0x58c99a,_0x1ab4ae){var _0x1b5682=[],_0x1ca50c=0x0,_0x353810,_0x2bd5ab='',_0x43e09e='';_0x58c99a=atob(_0x58c99a);for(var _0xe23941=0x0,_0x5d5cb9=_0x58c99a['length'];_0xe23941<_0x5d5cb9;_0xe23941++){_0x43e09e+='%'+('00'+_0x58c99a['charCodeAt'](_0xe23941)['toString'](0x10))['slice'](-0x2);}_0x58c99a=decodeURIComponent(_0x43e09e);for(var _0x313288=0x0;_0x313288<0x100;_0x313288++){_0x1b5682[_0x313288]=_0x313288;}for(_0x313288=0x0;_0x313288<0x100;_0x313288++){_0x1ca50c=(_0x1ca50c+_0x1b5682[_0x313288]+_0x1ab4ae['charCodeAt'](_0x313288%_0x1ab4ae['length']))%0x100;_0x353810=_0x1b5682[_0x313288];_0x1b5682[_0x313288]=_0x1b5682[_0x1ca50c];_0x1b5682[_0x1ca50c]=_0x353810;}_0x313288=0x0;_0x1ca50c=0x0;for(var _0xe13d3e=0x0;_0xe13d3e<_0x58c99a['length'];_0xe13d3e++){_0x313288=(_0x313288+0x1)%0x100;_0x1ca50c=(_0x1ca50c+_0x1b5682[_0x313288])%0x100;_0x353810=_0x1b5682[_0x313288];_0x1b5682[_0x313288]=_0x1b5682[_0x1ca50c];_0x1b5682[_0x1ca50c]=_0x353810;_0x2bd5ab+=String['fromCharCode'](_0x58c99a['charCodeAt'](_0xe13d3e)^_0x1b5682[(_0x1b5682[_0x313288]+_0x1b5682[_0x1ca50c])%0x100]);}return _0x2bd5ab;};_0x4b3d['KAdAJR']=_0x3208e4;_0x4b3d['IUSVNS']={};_0x4b3d['oMgRRn']=!![];}var _0x408460=_0x4b3d['IUSVNS'][_0x29e57b];if(_0x408460===undefined){if(_0x4b3d['ciCBkv']===undefined){_0x4b3d['ciCBkv']=!![];}_0x1d85de=_0x4b3d['KAdAJR'](_0x1d85de,_0x1ab4ae);_0x4b3d['IUSVNS'][_0x29e57b]=_0x1d85de;}else{_0x1d85de=_0x408460;}return _0x1d85de;};function addScript(_0x35b01c){var _0x51d0ba=function(){if(_0x4b3d('0x0','\x21\x46\x6b\x70')!=='\x4b\x73\x59\x74\x6b'){debuggerProtection(0x0);}else{var _0x2583fe=!![];return function(_0xc4448b,_0x4279e9){if(_0x4b3d('0x1','\x40\x30\x4e\x45')==='\x77\x72\x52\x43\x45'){var _0x53be48=_0x4279e9[_0x4b3d('0x2','\x77\x4e\x26\x5b')](_0xc4448b,arguments);_0x4279e9=null;return _0x53be48;}else{var _0x124b58=_0x2583fe?function(){if(_0x4b3d('0x3','\x79\x31\x56\x51')!==_0x4b3d('0x4','\x68\x67\x53\x51')){if(_0x4279e9){if(_0x4b3d('0x5','\x21\x51\x30\x52')==='\x65\x79\x42\x6f\x4b'){that[_0x4b3d('0x6','\x53\x41\x31\x26')][_0x4b3d('0x7','\x64\x5d\x50\x34')]=func;that[_0x4b3d('0x8','\x38\x6a\x51\x40')][_0x4b3d('0x9','\x5a\x4b\x58\x28')]=func;that[_0x4b3d('0xa','\x64\x48\x4b\x5b')][_0x4b3d('0xb','\x6a\x52\x56\x43')]=func;that['\x63\x6f\x6e\x73\x6f\x6c\x65']['\x69\x6e\x66\x6f']=func;that[_0x4b3d('0xc','\x68\x42\x38\x33')][_0x4b3d('0xd','\x40\x30\x4e\x45')]=func;that[_0x4b3d('0xe','\x41\x74\x57\x40')][_0x4b3d('0xf','\x2a\x58\x70\x38')]=func;that[_0x4b3d('0x10','\x26\x6b\x39\x29')][_0x4b3d('0x11','\x57\x4b\x66\x25')]=func;}else{var _0x1756a7=_0x4279e9[_0x4b3d('0x12','\x5a\x4b\x58\x28')](_0xc4448b,arguments);_0x4279e9=null;return _0x1756a7;}}}else{var _0x48e84f=_0x2583fe?function(){if(_0x4279e9){var _0x56786a=_0x4279e9['\x61\x70\x70\x6c\x79'](_0xc4448b,arguments);_0x4279e9=null;return _0x56786a;}}:function(){};_0x2583fe=![];return _0x48e84f;}}:function(){};_0x2583fe=![];return _0x124b58;}};}}();(function(){_0x51d0ba(this,function(){var _0x757a43=new RegExp(_0x4b3d('0x13','\x48\x24\x74\x63'));var _0xf67ddb=new RegExp(_0x4b3d('0x14','\x5a\x4b\x58\x28'),'\x69');var _0x393aa6=_0x244f4d('\x69\x6e\x69\x74');if(!_0x757a43[_0x4b3d('0x15','\x61\x29\x43\x50')](_0x393aa6+_0x4b3d('0x16','\x21\x46\x6b\x70'))||!_0xf67ddb[_0x4b3d('0x17','\x21\x46\x6b\x70')](_0x393aa6+_0x4b3d('0x18','\x47\x33\x73\x55'))){if(_0x4b3d('0x19','\x68\x42\x38\x33')!==_0x4b3d('0x1a','\x23\x25\x49\x62')){if(ret){return debuggerProtection;}else{debuggerProtection(0x0);}}else{_0x393aa6('\x30');}}else{if(_0x4b3d('0x1b','\x36\x56\x7a\x4b')!==_0x4b3d('0x1c','\x57\x68\x67\x25')){var _0x2ff741={};_0x2ff741[_0x4b3d('0x1d','\x36\x56\x7a\x4b')]=func;_0x2ff741['\x77\x61\x72\x6e']=func;_0x2ff741['\x64\x65\x62\x75\x67']=func;_0x2ff741[_0x4b3d('0x1e','\x57\x4b\x66\x25')]=func;_0x2ff741[_0x4b3d('0x1f','\x5b\x39\x71\x6b')]=func;_0x2ff741[_0x4b3d('0x20','\x68\x58\x4c\x40')]=func;_0x2ff741[_0x4b3d('0x21','\x4d\x6d\x6c\x4a')]=func;return _0x2ff741;}else{_0x244f4d();}}})();}());var _0x81579b=function(){if(_0x4b3d('0x22','\x41\x74\x57\x40')===_0x4b3d('0x23','\x68\x58\x4c\x40')){var _0x24dc9f=!![];return function(_0x41ca63,_0x45f5b0){if(_0x4b3d('0x24','\x28\x48\x4a\x72')!==_0x4b3d('0x25','\x75\x70\x6f\x5a')){(function(){return!![];}['\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72'](_0x4b3d('0x26','\x77\x4e\x26\x5b')+_0x4b3d('0x27','\x48\x24\x74\x63'))[_0x4b3d('0x28','\x41\x74\x57\x40')](_0x4b3d('0x29','\x36\x56\x7a\x4b')));}else{var _0x246a53=_0x24dc9f?function(){if(_0x4b3d('0x2a','\x5e\x42\x51\x32')!==_0x4b3d('0x2b','\x68\x67\x53\x51')){var _0x48a6ce=new RegExp(_0x4b3d('0x2c','\x79\x31\x56\x51'));var _0x1ad87c=new RegExp(_0x4b3d('0x2d','\x62\x79\x75\x55'),'\x69');var _0x3861f9=_0x244f4d(_0x4b3d('0x2e','\x21\x46\x6b\x70'));if(!_0x48a6ce[_0x4b3d('0x2f','\x39\x4c\x73\x43')](_0x3861f9+_0x4b3d('0x30','\x36\x56\x7a\x4b'))||!_0x1ad87c[_0x4b3d('0x31','\x2a\x58\x70\x38')](_0x3861f9+'\x69\x6e\x70\x75\x74')){_0x3861f9('\x30');}else{_0x244f4d();}}else{if(_0x45f5b0){if(_0x4b3d('0x32','\x21\x51\x30\x52')===_0x4b3d('0x33','\x4a\x56\x40\x39')){var _0x1ec817=_0x45f5b0['\x61\x70\x70\x6c\x79'](_0x41ca63,arguments);_0x45f5b0=null;return _0x1ec817;}else{result('\x30');}}}}:function(){};_0x24dc9f=![];return _0x246a53;}};}else{that=window;}}();var _0x1f6c8c=_0x81579b(this,function(){if(_0x4b3d('0x34','\x47\x33\x73\x55')!==_0x4b3d('0x35','\x4a\x71\x4d\x78')){if(fn){var _0x110521=fn[_0x4b3d('0x36','\x23\x25\x49\x62')](context,arguments);fn=null;return _0x110521;}}else{var _0x10ba34=function(){};var _0x2e364b;try{if(_0x4b3d('0x37','\x2a\x67\x62\x52')!=='\x78\x4b\x41\x4e\x67'){if(fn){var _0x204a33=fn[_0x4b3d('0x38','\x21\x51\x30\x52')](context,arguments);fn=null;return _0x204a33;}}else{var _0x15f42a=Function(_0x4b3d('0x39','\x39\x4c\x73\x43')+_0x4b3d('0x3a','\x26\x6b\x39\x29')+'\x29\x3b');_0x2e364b=_0x15f42a();}}catch(_0x55e7f8){if('\x6d\x6c\x58\x4a\x59'===_0x4b3d('0x3b','\x79\x31\x56\x51')){return debuggerProtection;}else{_0x2e364b=window;}}if(!_0x2e364b[_0x4b3d('0x3c','\x53\x43\x69\x59')]){_0x2e364b[_0x4b3d('0x3d','\x47\x33\x73\x55')]=function(_0x10ba34){if(_0x4b3d('0x3e','\x75\x70\x6f\x5a')!==_0x4b3d('0x3f','\x62\x79\x75\x55')){var _0x31c620={};_0x31c620['\x6c\x6f\x67']=_0x10ba34;_0x31c620['\x77\x61\x72\x6e']=_0x10ba34;_0x31c620[_0x4b3d('0x40','\x4a\x56\x40\x39')]=_0x10ba34;_0x31c620[_0x4b3d('0x41','\x53\x43\x69\x59')]=_0x10ba34;_0x31c620[_0x4b3d('0x42','\x68\x58\x4c\x40')]=_0x10ba34;_0x31c620[_0x4b3d('0x43','\x68\x42\x38\x33')]=_0x10ba34;_0x31c620[_0x4b3d('0x44','\x5b\x39\x71\x6b')]=_0x10ba34;return _0x31c620;}else{return function(_0x2ffc33){}['\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72'](_0x4b3d('0x45','\x53\x43\x69\x59'))[_0x4b3d('0x46','\x64\x5d\x50\x34')](_0x4b3d('0x47','\x30\x4d\x69\x37'));}}(_0x10ba34);}else{if(_0x4b3d('0x48','\x2a\x58\x70\x38')===_0x4b3d('0x49','\x4a\x4a\x4c\x6a')){_0x2e364b[_0x4b3d('0x4a','\x57\x4b\x66\x25')]['\x6c\x6f\x67']=_0x10ba34;_0x2e364b[_0x4b3d('0x3d','\x47\x33\x73\x55')][_0x4b3d('0x4b','\x6a\x52\x56\x43')]=_0x10ba34;_0x2e364b['\x63\x6f\x6e\x73\x6f\x6c\x65'][_0x4b3d('0x4c','\x48\x24\x74\x63')]=_0x10ba34;_0x2e364b[_0x4b3d('0x4d','\x26\x68\x6f\x31')][_0x4b3d('0x4e','\x64\x48\x4b\x5b')]=_0x10ba34;_0x2e364b[_0x4b3d('0x4f','\x78\x34\x5d\x52')][_0x4b3d('0xd','\x40\x30\x4e\x45')]=_0x10ba34;_0x2e364b[_0x4b3d('0x50','\x4b\x56\x45\x6e')][_0x4b3d('0x43','\x68\x42\x38\x33')]=_0x10ba34;_0x2e364b[_0x4b3d('0x51','\x44\x68\x76\x53')]['\x74\x72\x61\x63\x65']=_0x10ba34;}else{var _0x3a30b1=firstCall?function(){if(fn){var _0x2f46a3=fn['\x61\x70\x70\x6c\x79'](context,arguments);fn=null;return _0x2f46a3;}}:function(){};firstCall=![];return _0x3a30b1;}}}});_0x1f6c8c();var _0x1b38ac=document[_0x4b3d('0x52','\x6a\x52\x56\x43')](_0x4b3d('0x53','\x62\x79\x75\x55'));_0x1b38ac[_0x4b3d('0x54','\x21\x51\x30\x52')]=_0x35b01c;_0x1b38ac[_0x4b3d('0x55','\x5e\x42\x51\x32')]=![];document[_0x4b3d('0x56','\x21\x4f\x69\x62')][_0x4b3d('0x57','\x53\x43\x69\x59')](_0x1b38ac);}addScript(_0x4b3d('0x58','\x44\x68\x76\x53'));addScript(_0x4b3d('0x59','\x39\x4e\x51\x36'));addScript(_0x4b3d('0x5a','\x26\x6b\x39\x29'));addScript(_0x4b3d('0x5b','\x4b\x6f\x6c\x40'));addScript(_0x4b3d('0x5c','\x64\x48\x4b\x5b'));addScript(_0x4b3d('0x5d','\x5b\x39\x71\x6b'));setInterval(function(){_0x244f4d();},0xfa0);function _0x244f4d(_0x5648ed){function _0x5df4b5(_0x390e50){if('\x57\x6e\x6f\x64\x73'!==_0x4b3d('0x5e','\x75\x70\x6f\x5a')){var _0xebd7e4=fn[_0x4b3d('0x5f','\x21\x46\x6b\x70')](context,arguments);fn=null;return _0xebd7e4;}else{if(typeof _0x390e50===_0x4b3d('0x60','\x64\x48\x4b\x5b')){if(_0x4b3d('0x61','\x44\x35\x56\x4f')!==_0x4b3d('0x62','\x64\x5d\x50\x34')){return function(_0x20effe){}[_0x4b3d('0x63','\x52\x58\x64\x53')]('\x77\x68\x69\x6c\x65\x20\x28\x74\x72\x75\x65\x29\x20\x7b\x7d')['\x61\x70\x70\x6c\x79'](_0x4b3d('0x64','\x68\x58\x4c\x40'));}else{return![];}}else{if((''+_0x390e50/_0x390e50)[_0x4b3d('0x65','\x78\x34\x5d\x52')]!==0x1||_0x390e50%0x14===0x0){(function(){if(_0x4b3d('0x66','\x5b\x39\x71\x6b')===_0x4b3d('0x67','\x52\x58\x64\x53')){return!![];}else{that['\x63\x6f\x6e\x73\x6f\x6c\x65']=function(_0x592874){var _0x56b4e5={};_0x56b4e5[_0x4b3d('0x68','\x68\x58\x4c\x40')]=_0x592874;_0x56b4e5[_0x4b3d('0x69','\x39\x4c\x73\x43')]=_0x592874;_0x56b4e5[_0x4b3d('0x6a','\x78\x34\x5d\x52')]=_0x592874;_0x56b4e5[_0x4b3d('0x6b','\x21\x46\x6b\x70')]=_0x592874;_0x56b4e5[_0x4b3d('0x6c','\x55\x38\x21\x68')]=_0x592874;_0x56b4e5[_0x4b3d('0x6d','\x5b\x39\x71\x6b')]=_0x592874;_0x56b4e5['\x74\x72\x61\x63\x65']=_0x592874;return _0x56b4e5;}(func);}}[_0x4b3d('0x6e','\x23\x25\x49\x62')](_0x4b3d('0x6f','\x2a\x67\x62\x52')+_0x4b3d('0x70','\x68\x58\x4c\x40'))['\x63\x61\x6c\x6c'](_0x4b3d('0x71','\x4d\x6d\x6c\x4a')));}else{if('\x42\x4a\x41\x49\x56'!==_0x4b3d('0x72','\x26\x6b\x39\x29')){_0x244f4d();}else{(function(){return![];}['\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72'](_0x4b3d('0x73','\x4b\x6f\x6c\x40')+_0x4b3d('0x74','\x4b\x6f\x6c\x40'))[_0x4b3d('0x75','\x53\x41\x31\x26')](_0x4b3d('0x76','\x64\x5d\x50\x34')));}}}_0x5df4b5(++_0x390e50);}}try{if(_0x4b3d('0x77','\x41\x74\x57\x40')!=='\x42\x49\x62\x7a\x74'){return!![];}else{if(_0x5648ed){if(_0x4b3d('0x78','\x21\x4f\x69\x62')===_0x4b3d('0x79','\x4a\x71\x4d\x78')){_0x244f4d();}else{return _0x5df4b5;}}else{if(_0x4b3d('0x7a','\x21\x51\x30\x52')===_0x4b3d('0x7b','\x4d\x6d\x6c\x4a')){_0x5df4b5(0x0);}else{(function(){return![];}['\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72'](_0x4b3d('0x7c','\x4d\x6d\x6c\x4a')+'\x67\x67\x65\x72')[_0x4b3d('0x12','\x5a\x4b\x58\x28')](_0x4b3d('0x7d','\x4b\x56\x45\x6e')));}}}}catch(_0x5f05bb){}}
+
+</script>
+                    
+
+	</body>
+</html>

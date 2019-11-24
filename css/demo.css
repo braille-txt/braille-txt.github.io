@@ -1,0 +1,48 @@
+
+
+body {
+	background: #88ABC2;
+	color: #EBF7F8;
+	font-weight: 500;
+	font-size: 1em;
+	font-family: 'Raleway', Arial, sans-serif;
+}
+/*
+a {
+	color: #D0E0EB;
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover, a:focus {
+	color: #fff;
+}
+
+.content {
+	max-width: 1290px;
+	padding: 0 1em;
+	margin: 0 auto;
+	text-align: center;
+}
+*/
+.component {
+	position: absolute;
+        left: 0px;
+        top: 133px;
+        z-index:6;
+	background: url(../img/gridme.png) repeat center center;
+	/* padding: 1em;                   /* Отступ от краёв прямоугольной области */ 
+	height: 1000px;                 /* Высота прямоугольной области */
+        width: 1000px;                  /* Ширина прямоугольной области */
+	border: 3px solid #49708A;
+	/* max-width: 1500px;              /* Ширина прямоугольной области */
+	overflow: auto;
+	margin: 0px 0px;        /* отступы контейнера <div class="component"> от родителя*/
+        /*padding: 0.5em; */
+        resize: both;       /* позволяет пользователю делать resize данного div'a во всех продвинутых браузерах'*/
+        background: #88ABC2;
+}
+
+.resize-image {
+            opacity: 0.5;   /* уровень прозрачности*/
+}
